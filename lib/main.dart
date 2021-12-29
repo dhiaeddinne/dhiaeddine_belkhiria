@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [Locale("en"), Locale("fr")],
       onGenerateRoute: route.generateRoute,
-      initialRoute: route.startUpScreenRoute,
+      initialRoute: route.loginScreenRoute,
     );
   }
 }

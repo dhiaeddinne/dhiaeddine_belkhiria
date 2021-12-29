@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Function? onFieldSubmitted;
   final FocusNode? focusNode;
+  final bool? obscureText;
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
   final TextEditingController? controller;
@@ -18,6 +19,7 @@ class CustomTextFormField extends StatelessWidget {
       {this.validator,
         this.hintText,
         this.enabledBorderColor,
+        this.obscureText,
         this.focusedBorderColor,
         this.suffixIcon,
         required this.label,
@@ -34,8 +36,9 @@ class CustomTextFormField extends StatelessWidget {
         controller: controller,
         autofocus: false,
         textInputAction: TextInputAction.next,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.text,
         validator: (value) => validator,
+        obscureText: obscureText ?? false,
         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
@@ -43,9 +46,11 @@ class CustomTextFormField extends StatelessWidget {
                 .toUpperCase()),
             labelStyle: const TextStyle(
               color: Colors.white38,
+              fontSize: 14
             ),
             hintStyle: const TextStyle(
               color: Colors.white38,
+              fontSize: 14
             ),
             hintText: hintText,
             enabledBorder: inInputBorderColor(enabledBorderColor ?? Colors.white),

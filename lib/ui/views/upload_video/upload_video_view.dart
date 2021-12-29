@@ -1,9 +1,9 @@
 import 'package:dhiaeddine_belkhiria/app/globalization/globalizationManager.dart';
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_button.dart';
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_text.dart';
-import 'package:dhiaeddine_belkhiria/app/utils/form_utils.dart';
 import 'package:dhiaeddine_belkhiria/ui/views/upload_video/upload_video_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 import 'package:dhiaeddine_belkhiria/app/utils/colors.dart' as colors;
@@ -20,7 +20,7 @@ class _UploadVideoViewState extends State<UploadVideoView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<UploadVideoViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
-          appBar: AppBar(
+          appBar: !model.uploadBtnClicked ? AppBar(
             backgroundColor: Colors.white,
             leading: IconButton(
               onPressed: () {},
@@ -34,44 +34,50 @@ class _UploadVideoViewState extends State<UploadVideoView> {
               size: 22,
             ),
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(4.0),
+              preferredSize: const Size.fromHeight(4.0),
               child: Container(
                 color: colors.lightGreyColor,
                 height: 1.0,
               ),
             ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.fromLTRB(25, 35, 25, 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  text: GlobalizationManager.of(context)
-                      .getMessage("title", "video_title"),
-                  size: 15,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                videoTitle(uploadVideoViewModel: model),
-                CustomText(
-                  text: GlobalizationManager.of(context)
-                      .getMessage("title", "description"),
-                  size: 15,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                videoDescription(uploadVideoViewModel: model),
-                const SizedBox(
-                  height: 40,
-                ),
-                Center(child: uploadVideoButton(uploadVideoViewModel: model))
-              ],
-            ),
-          )),
+          ):null,
+          body: model.uploadBtnClicked
+              ? SpinKitFadingCircle(
+                  color: colors.loaderColor,
+                  size: 50.0,
+                )
+              : Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 35, 25, 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomText(
+                        text: GlobalizationManager.of(context)
+                            .getMessage("title", "video_title"),
+                        size: 15,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      videoTitle(uploadVideoViewModel: model),
+                      CustomText(
+                        text: GlobalizationManager.of(context)
+                            .getMessage("title", "description"),
+                        size: 15,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      videoDescription(uploadVideoViewModel: model),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Center(
+                          child: uploadVideoButton(uploadVideoViewModel: model))
+                    ],
+                  ),
+                )),
       viewModelBuilder: () => UploadVideoViewModel(),
     );
   }
@@ -142,10 +148,7 @@ class _UploadVideoViewState extends State<UploadVideoView> {
         btnColor: colors.buttonColor,
         borderRadius: 8,
         onTapFunction: () {
-          // Navigator.of(context)
-          //     .push(SlideLeftRoute(page: HomeView()));
-          // Navigator.of(context)
-          //     .push(SlideLeftRoute(page: const UploadVideoView()));
+          uploadVideoViewModel.changeBtnClickedValue(context);
         });
   }
 }

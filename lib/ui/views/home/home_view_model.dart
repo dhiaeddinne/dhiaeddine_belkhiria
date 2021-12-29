@@ -1,24 +1,38 @@
-import 'package:bottom_indicator_bar/bottom_indicator_bar.dart';
-import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_text.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:dhiaeddine_belkhiria/ui/views/upload_video/upload_video_view.dart';
+import 'package:dhiaeddine_belkhiria/ui/views/videos_list/video_list_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter/material.dart';
-import 'package:dhiaeddine_belkhiria/app/models/post_model.dart';
 
 class HomeViewModel extends BaseViewModel {
-  final String _title = 'HomeViewModel';
+  int _selectedIndex = 0;
 
-  String get title => _title;
+  int get selectedIndex => _selectedIndex;
 
-
-  final List<BottomIndicatorNavigationBarItem> items = [
-    BottomIndicatorNavigationBarItem(icon: Icons.home),
-    BottomIndicatorNavigationBarItem(icon: Icons.search),
-    BottomIndicatorNavigationBarItem(icon: Icons.search),
-    BottomIndicatorNavigationBarItem(icon: Icons.search),
-    BottomIndicatorNavigationBarItem(icon: Icons.settings),
+  // Home content with video list, because the list is not dynamic so I just control the display of the video list with boolean value
+  List<Widget> homeContentWithVideoList = [
+    VideoListView(
+      showVideoList: true,
+    ),
+    Container(),
+    UploadVideoView(),
+    Container(),
+    Container(),
   ];
 
+  List<Widget> homeContentWithoutVideoList = [
+    VideoListView(),
+    Container(),
+    UploadVideoView(),
+    Container(),
+    Container(),
+  ];
 
+  void onItemTapped(int index) {
+    if (index == 1 || index == 3 || index == 4) {
+      return;
+    } else {
+      _selectedIndex = index;
+      notifyListeners();
+    }
+  }
 }

@@ -1,8 +1,6 @@
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
-
-
 class CustomButton extends StatelessWidget {
   final String text;
   final double? height;
@@ -20,7 +18,7 @@ class CustomButton extends StatelessWidget {
     this.height,
     this.width,
     required this.onTapFunction,
-});
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +31,11 @@ class CustomButton extends StatelessWidget {
         width: width ?? MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: btnColor,
-            borderRadius: BorderRadius.circular(borderRadius ?? 0)
-        ),
+            borderRadius: BorderRadius.circular(borderRadius ?? 0)),
         child: Center(
           child: CustomText(
             text: text,
+            size: 14,
             color: textColor ?? Colors.white,
           ),
         ),
@@ -70,22 +68,22 @@ class CustomIconButton extends StatelessWidget {
         onTapFunction();
       },
       child: Container(
-        height: height ?? 55,
-        color: btnColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            btnIcon,
-            const SizedBox(
-              width: 12,
-            ),
-            CustomText(
-              text: text,
-              color: textColor ?? Colors.white,
-            ),
-          ],
-        )
-      ),
+          height: height ?? 55,
+          color: btnColor,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              btnIcon,
+              const SizedBox(
+                width: 12,
+              ),
+              CustomText(
+                text: text,
+                size: 14,
+                color: textColor ?? Colors.white,
+              ),
+            ],
+          )),
     );
   }
 }

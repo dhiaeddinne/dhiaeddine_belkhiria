@@ -1,11 +1,17 @@
+import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_navigation/slide_left_route.dart';
+import 'package:dhiaeddine_belkhiria/ui/views/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:dhiaeddine_belkhiria/app/utils/router.dart' as route;
 
 class SignUpViewModel extends BaseViewModel {
   final String _title = 'LoginViewModel';
   String get title => _title;
   bool _obscurePassword = true;
   bool get obscurePassword => _obscurePassword;
+
+  bool _obscureConfirmPassword = true;
+  bool get obscureConfirmPassword => _obscureConfirmPassword;
 
   bool _checkBoxValue = false;
   bool get checkBoxValue => _checkBoxValue;
@@ -46,8 +52,22 @@ class SignUpViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  void changeObscureConfirmPassword() {
+    _obscureConfirmPassword = !_obscureConfirmPassword;
+    notifyListeners();
+  }
+
   void changeCheckBoxValue() {
     _checkBoxValue = !_checkBoxValue;
     notifyListeners();
+  }
+
+  void navigateToLoginScreen({required BuildContext context}){
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil(route.loginScreenRoute, (route) => false);
+  }
+
+  void navigateToHomeScreen({required BuildContext context}) {
+    Navigator.of(context).push(SlideLeftRoute(page: HomeView()));
   }
 }

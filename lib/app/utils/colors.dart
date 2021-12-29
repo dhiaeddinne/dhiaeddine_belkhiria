@@ -11,3 +11,4 @@ Color dividerColor = const Color(0XFFE1E1E1);
 Color textColor = const Color(0XFF19295C);
 Color lightGreyColor = const Color(0XFFB8BAC3);
 Color inputBgColor = const Color(0XFFF2F4F7);
+Color loaderColor = const Color(0XFFBFAB88);
