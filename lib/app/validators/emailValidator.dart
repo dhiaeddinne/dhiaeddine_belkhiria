@@ -20,21 +20,4 @@ class EmailValidator {
 
     return null;
   }
-
-  static String? validateConfirmEmail(
-      BuildContext context, value, String email) {
-    if (value.isEmpty) {
-      return GlobalizationManager.of(context)
-          .getMessage("validationErrors", "requiredField");
-    }
-
-    String strValue = value.toString();
-
-    if (strValue != email) {
-      return GlobalizationManager.of(context).getMessage(
-          "validationErrors", "differentConfirmEmail");
-    }
-
-    return null;
-  }
 }

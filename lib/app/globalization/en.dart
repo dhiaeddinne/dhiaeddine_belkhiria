@@ -45,6 +45,5 @@ class EnMessages {
       "save": "Save",
       "upload": "upload"
     },
-    "Messages": {},
   };
 }

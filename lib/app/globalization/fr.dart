@@ -46,6 +46,5 @@ class FrMessages {
       "save": "Enregistrer",
       "upload": "Publier"
     },
-    "Messages": {},
   };
 }

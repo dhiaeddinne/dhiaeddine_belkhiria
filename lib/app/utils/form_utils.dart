@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// SignIn
 InputBorder customSignInInputBorder(Color color) {
   return OutlineInputBorder(
       borderSide: BorderSide(
