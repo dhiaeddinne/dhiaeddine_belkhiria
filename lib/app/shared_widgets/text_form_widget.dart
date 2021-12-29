@@ -10,11 +10,15 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Function? onFieldSubmitted;
   final FocusNode? focusNode;
+  final Color? enabledBorderColor;
+  final Color? focusedBorderColor;
   final TextEditingController? controller;
 
   CustomTextFormField(
       {this.validator,
         this.hintText,
+        this.enabledBorderColor,
+        this.focusedBorderColor,
         this.suffixIcon,
         required this.label,
         this.onFieldSubmitted,
@@ -44,10 +48,10 @@ class CustomTextFormField extends StatelessWidget {
               color: Colors.white38,
             ),
             hintText: hintText,
-            enabledBorder: inInputBorderColor(context),
-            focusedBorder: inInputBorderColor(context),
-            errorBorder: redSignInInputBorder(context),
-            focusedErrorBorder: redSignInInputBorder(context),
+            enabledBorder: inInputBorderColor(enabledBorderColor ?? Colors.white),
+            focusedBorder: inInputBorderColor(focusedBorderColor?? Colors.white),
+            errorBorder: redSignInInputBorder(),
+            focusedErrorBorder: redSignInInputBorder(),
             errorStyle: const TextStyle(fontSize: 12)),
         onFieldSubmitted: (value) {
           focusNode?.unfocus();

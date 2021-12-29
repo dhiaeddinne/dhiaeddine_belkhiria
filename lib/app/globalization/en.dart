@@ -11,7 +11,9 @@ class EnMessages {
       "create_account": "Create Account",
       "first_name":"First Name",
       "name":"name",
-      "confirm_password":"Confirm password"
+      "confirm_password":"Confirm password",
+      "agree_to": "I agree to ",
+      "terms_&_conditions": "terms & conditions",
     },
     "validationErrors": {
       "requiredField": "This field is required",
@@ -34,8 +36,14 @@ class EnMessages {
       "enter_reason": "Please enter a reason",
       "enter_code": "Please enter the code !",
     },
+    "title":{
+      "upload_video": "Upload Video",
+      "video_title": "Video Title",
+      "description": "Description"
+    },
     "Button": {
-      "save": "Save"
+      "save": "Save",
+      "upload": "upload"
     },
     "Messages": {},
   };

@@ -1,11 +1,14 @@
 import 'package:dhiaeddine_belkhiria/app/globalization/globalizationManager.dart';
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_button.dart';
+import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_navigation/slide_left_route.dart';
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/custom_text.dart';
 import 'package:dhiaeddine_belkhiria/app/shared_widgets/text_form_widget.dart';
 import 'package:dhiaeddine_belkhiria/app/utils/form_utils.dart';
 import 'package:dhiaeddine_belkhiria/app/utils/colors.dart' as colors;
 import 'package:dhiaeddine_belkhiria/app/validators/emailValidator.dart';
 import 'package:dhiaeddine_belkhiria/ui/views/auth/login/login_view_model.dart';
+import 'package:dhiaeddine_belkhiria/ui/views/home/home_view.dart';
+import 'package:dhiaeddine_belkhiria/ui/views/upload_video/upload_video_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
@@ -179,7 +182,10 @@ class _LoginViewState extends State<LoginView> {
         text: GlobalizationManager.of(context).getMessage("auth", "login"),
         btnColor: colors.buttonColor,
         onTapFunction: () {
-
+          Navigator.of(context)
+              .push(SlideLeftRoute(page: HomeView()));
+          // Navigator.of(context)
+          //     .push(SlideLeftRoute(page: const UploadVideoView()));
         });
   }
 

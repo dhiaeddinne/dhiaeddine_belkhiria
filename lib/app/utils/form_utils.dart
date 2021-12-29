@@ -10,11 +10,11 @@ InputBorder customSignInInputBorder(Color color) {
       borderRadius: BorderRadius.circular(2));
 }
 
-InputBorder inInputBorderColor(BuildContext context) {
-  return customSignInInputBorder(Colors.white);
+InputBorder inInputBorderColor(color) {
+  return customSignInInputBorder(color);
 }
 
-InputBorder redSignInInputBorder(BuildContext context) {
+InputBorder redSignInInputBorder() {
   return customSignInInputBorder(Colors.red);
 }
 

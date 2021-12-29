@@ -11,7 +11,9 @@ class FrMessages {
       "create_account": "Créer un compte",
       "first_name":"Prénom",
       "name":"Nom",
-      "confirm_password":"Confirmez mot de passe"
+      "confirm_password":"Confirmez mot de passe",
+      "agree_to": "J'accepte les ",
+      "terms_&_conditions": "termes et conditions",
     },
     "validationErrors": {
       "requiredField": "Ce champ est obligatoire",
@@ -34,8 +36,15 @@ class FrMessages {
       "enter_reason": "Veuillez entrer une raison",
       "enter_code": "Veuillez entrer le code !",
     },
+    "title":{
+      "upload_video": "Publier une video",
+      "video_title": "Titre de la vidéo",
+      "description": "Description"
+
+    },
     "Button": {
-      "save": "Enregistrer"
+      "save": "Enregistrer",
+      "upload": "Publier"
     },
     "Messages": {},
   };

@@ -6,15 +6,19 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final double? height;
+  final double? width;
   final Color? btnColor;
   final Color? textColor;
   final Function onTapFunction;
+  final double? borderRadius;
 
   CustomButton({
     this.btnColor,
     this.textColor,
+    this.borderRadius,
     required this.text,
     this.height,
+    this.width,
     required this.onTapFunction,
 });
 
@@ -26,7 +30,11 @@ class CustomButton extends StatelessWidget {
       },
       child: Container(
         height: height ?? 55,
-        color: btnColor,
+        width: width ?? MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            color: btnColor,
+            borderRadius: BorderRadius.circular(borderRadius ?? 0)
+        ),
         child: Center(
           child: CustomText(
             text: text,
